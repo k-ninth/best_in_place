@@ -2,7 +2,13 @@ module BestInPlace
   module DisplayMethods  #:nodoc:
     module_function
 
-    class Renderer < Struct.new(:opts)
+    class Renderer
+      attr_reader :opts
+
+      def initialize(opts)
+        @opts = opts
+      end
+
       def render_json(object)
         case opts[:type]
           when :model
